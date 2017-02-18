@@ -9,7 +9,7 @@ def hello_world():
 
 
 
-@app.route('Tati/')
+@app.route('/Tati')
 def holaTati():
     return 'Hola Tati'
 
