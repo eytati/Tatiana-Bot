@@ -23,8 +23,18 @@ class Estado_Actual:
     def estado(self):
         return 'Index'
 
-class Lista_de_Conocimiento:
 
+class Lista_de_Conocimento:
+    @app.route('/lista_actual')
+    def lista_actual(slef):
+        pass
+
+    def buscar_videos(self):
+
+        return
+
+
+class Aprender:
     def modulo_aritmetico(self, operacion, numero1, numero2):
         resultado =0
         if operacion is 'Suma':
@@ -49,7 +59,7 @@ class Lista_de_Conocimiento:
                 if numero%contador is 0:
                     primo = False
                     break
-
         return primo
+
 
 
