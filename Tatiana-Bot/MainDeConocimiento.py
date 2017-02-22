@@ -42,11 +42,11 @@ class Aprender:
 
     def modulo_aritmetico(self, operacion, numero1, numero2):
         resultado =0
-        if operacion is 'Suma':
+        if operacion is 1:
            resultado= numero1 + numero2
-        elif operacion is 'Resta':
+        elif operacion is 2:
             resultado= numero1 - numero2
-        elif operacion is 'Division':
+        elif operacion is 3:
             resultado = numero1/numero2
         else:
             resultado = numero1*numero2
@@ -81,10 +81,11 @@ def primo(numero):
 
 @app.route('/Aprender/ModuloAritmetico/<operacion>/<numero1>/<numero2>', methods=['GET','POST'])
 def modulo_aritmetico(operacion, numero1, numero2):
+    operacion_int = int(operacion)
     numero_int1 = int(numero1)
     numero_int2 = int(numero2)
     resultado_de_operacion = Aprender()
-    return str(resultado_de_operacion.modulo_aritmetico(operacion, numero_int1, numero_int2))
+    return str(resultado_de_operacion.modulo_aritmetico(operacion_int, numero_int1, numero_int2))
 
 
 if __name__ == '__main__':
