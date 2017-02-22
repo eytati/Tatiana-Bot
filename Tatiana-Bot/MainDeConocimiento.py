@@ -1,11 +1,12 @@
 from flask import Flask,render_template, request
+import  cv2
 
 app = Flask(__name__)
 
 
 @app.route('/Conocimiento', methods=['GET'])
 def hello_world():
-    return render_template('Index.html')
+    return render_template('Index2.html')
 
 
 @app.route('/Cono')
@@ -38,8 +39,6 @@ class Lista_de_Conocimento:
 
 
 class Aprender:
-
-
     def modulo_aritmetico(self, operacion, numero1, numero2):
         resultado =0
         if operacion is 1:
