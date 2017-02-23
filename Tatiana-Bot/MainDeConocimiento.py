@@ -14,15 +14,6 @@ def hola():
     return 'Hello World'
 
 
-class Estado_Actual:
-    def __init__(self):
-        # Constructor
-        return
-
-    @app.route('/EstadoActual', methods=['GET'])
-    def estado(self):
-        return 'Index'
-
 
 class Lista_de_Conocimento:
     @app.route('/lista_actual')
