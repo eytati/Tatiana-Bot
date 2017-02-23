@@ -1,19 +1,5 @@
 from flask import Flask,render_template, request
-import  cv2
-
 app = Flask(__name__)
-
-
-@app.route('/Conocimiento', methods=['GET'])
-def hello_world():
-    return render_template('Index2.html')
-
-
-@app.route('/Cono')
-def hola():
-    return 'Hello World'
-
-
 
 class Lista_de_Conocimento:
     @app.route('/lista_actual')
@@ -30,6 +16,7 @@ class Lista_de_Conocimento:
 
 
 class Aprender:
+
     def modulo_aritmetico(self, operacion, numero1, numero2):
         resultado =0
         if operacion is 1:
@@ -59,23 +46,38 @@ class Aprender:
 
 
 
-@app.route('/aprender')
+@app.route('/api/informacion_del_bot')
+def informacion_del_bot():
+    return render_template('Informacion.html')
+
+@app.route('/api/principal')
+def principal():
+    return  render_template('Index2.html')
+
+@app.route('api/onocimiento', methods=['GET'])
+def hello_world():
+    return render_template('Index2.html')
+
+@app.route('/api/aprender')
 def aprender():
     return 'hola'
 
-@app.route('/aprender/primo/<numero>', methods=['GET', 'POST'])
+@app.route('api/aprender/primo/<numero>', methods=['GET', 'POST'])
 def primo(numero):
     resultado_de_primo = Aprender()
     primo2 = int(numero)
     return str(resultado_de_primo.es_primo(primo2))
 
-@app.route('/Aprender/ModuloAritmetico/<operacion>/<numero1>/<numero2>', methods=['GET','POST'])
+@app.route('/api/aprender/ModuloAritmetico/<operacion>/<numero1>/<numero2>', methods=['GET','POST'])
 def modulo_aritmetico(operacion, numero1, numero2):
     operacion_int = int(operacion)
     numero_int1 = int(numero1)
     numero_int2 = int(numero2)
     resultado_de_operacion = Aprender()
     return str(resultado_de_operacion.modulo_aritmetico(operacion_int, numero_int1, numero_int2))
+
+
+
 
 
 if __name__ == '__main__':
