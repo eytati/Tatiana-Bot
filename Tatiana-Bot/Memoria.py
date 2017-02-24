@@ -1,4 +1,4 @@
-class Memoria():
+class Memoria:
 
     matriz = []
     ultima_linea=0
