@@ -1,19 +1,7 @@
-from flask import Flask,render_template, request
+from flask import Flask,render_template, request, jsonify, json
+from werkzeug.security import generate_password_hash
+
 app = Flask(__name__)
-
-class Lista_de_Conocimento:
-    @app.route('/lista_actual')
-    def lista_actual(slef):
-        return
-
-    def buscar_videos(self):
-
-        return
-
-    def toma_fotos(self):
-
-        return
-
 
 class Aprender:
 
@@ -43,26 +31,47 @@ class Aprender:
                     primo = False
                     break
         return primo
+class Informacion():
+
+    def JSON_informacion_general(self, nombre, id, fecha_de_creacion):
+        json_valor= {"informacion":
+                   {
+                       "Nombre": nombre,
+                       "ID": id,
+                       "Creador": "Eylen Fernandez",
+                       "FechaDeCreacion": fecha_de_creacion
+                   }
+              }
+        return json.dump(json_valor)
+
+    def Valor_de_hash(self, palabra_clave):
+        return generate_password_hash(palabra_clave)
 
 
-
+#-------------------------------Ruta de Informacion General-------------------------------#
 @app.route('/api/informacion_del_bot')
 def informacion_del_bot():
+
     return render_template('Informacion.html')
+
+#-------------------------------Ruta de Obencion de hash-------------------------------#
+@app.route('/prueba<valor>')
+def prueba(valor):
+    obtener_hash = Informacion()
+    return str(obtener_hash.Valor_de_hash(valor))
+
 
 @app.route('/api/principal')
 def principal():
     return  render_template('Index2.html')
 
-@app.route('api/onocimiento', methods=['GET'])
-def hello_world():
-    return render_template('Index2.html')
+
 
 @app.route('/api/aprender')
 def aprender():
     return 'hola'
 
-@app.route('api/aprender/primo/<numero>', methods=['GET', 'POST'])
+@app.route('/api/aprender/primo/<numero>', methods=['GET', 'POST'])
 def primo(numero):
     resultado_de_primo = Aprender()
     primo2 = int(numero)
@@ -77,8 +86,20 @@ def modulo_aritmetico(operacion, numero1, numero2):
     return str(resultado_de_operacion.modulo_aritmetico(operacion_int, numero_int1, numero_int2))
 
 
+'''
+class Lista_de_Conocimento:
+    @app.route('/lista_actual')
+    def lista_actual(slef):
+        return
 
+    def buscar_videos(self):
 
+        return
+
+    def toma_fotos(self):
+
+        return
+'''
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port='5001')
