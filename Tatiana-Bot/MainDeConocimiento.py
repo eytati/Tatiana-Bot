@@ -3,36 +3,7 @@ from werkzeug.security import generate_password_hash
 
 app = Flask(__name__)
 
-class operecion:
 
-
-
-    def modulo_aritmetico(self, operacion, numero1, numero2):
-        resultado =0
-        if operacion is 1:
-           resultado= numero1 + numero2
-        elif operacion is 2:
-            resultado= numero1 - numero2
-        elif operacion is 3:
-            resultado = numero1/numero2
-        else:
-            resultado = numero1*numero2
-        return resultado
-
-
-    def es_primo(self, numero):
-        primo = True
-        if numero is 2:
-            primo = True
-        elif numero%2 is 0:
-            primo = False
-        else:
-            mediaRelativa = int((numero-1)/2)
-            for contador in range(3, mediaRelativa):
-                if numero%contador is 0:
-                    primo = False
-                    break
-        return primo
 class Informacion():
 
     def JSON_informacion_general(self, nombre, id, fecha_de_creacion):
