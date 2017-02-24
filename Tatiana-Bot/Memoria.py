@@ -21,6 +21,7 @@ class Memoria:
                 self.Agrega_columna(lineas)
 
     def Eliminar_conocimiento(self, linea, columna):
+        self.matriz[linea,columna] = ''
         return
 
     def Eliminar_conocimiento(self, id_conocimiento):
