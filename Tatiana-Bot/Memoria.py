@@ -1,5 +1,5 @@
 class Memoria:
-    matriz = []
+    matriz = [None, None,], [None,None]
     instance = None
 
     def __init__(self):
@@ -7,20 +7,23 @@ class Memoria:
             Memoria.instance = self
 
     def Agregar(self):
-        for lineas in range(self.matriz):
-            if lineas is None:
-                self.matriz.append([])
-            for columna in range(self.matriz):
-                if columna is None:
-                    self.Agrega_columna(lineas)
+        a= len(self.matriz)
+        for lineas in range(len(self.matriz)):
+           if lineas is a:
+            self.matriz.append([])
+            for columna in range(len(self.matriz)):
+                self.Agrega_columna(lineas)
 
     def Aprender(self, conocimiento):
         ingreso_en_matriz = False
-        for lineas in range(self.matriz):
-            for columna in range(self.matriz):
+        for lineas in range(len(self.matriz)):
+            if ingreso_en_matriz:
+                break
+            for columna in range(len(self.matriz)):
                 if self.matriz[lineas][columna] is None:
-                    self.matriz[lineas][columna] = conocimiento
+                    self.matriz[lineas][columna]= conocimiento
                     ingreso_en_matriz = True
+                    break
         if not ingreso_en_matriz:
             self.Agregar()
             self.Aprender(conocimiento)
@@ -30,6 +33,7 @@ class Memoria:
 
 
 a = Memoria()
+a.Aprender('HOLA')
 a.Aprender('HOLA')
 a.Aprender('HOLA')
 a.Aprender('HOLA')
