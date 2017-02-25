@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>INDEX</title>
+     <link rel="stylesheet" type="text/css" href="../static/CSS/Principal.css">
+    <title>Index2</title>
+
 </head>
-<div>
-    <div class="navbar navbar-inverse navbar-fixed-top", style="background: teal">
-
+<body bgcolor="#008b8b">
+    <div>
+        <TABLE>
+            <TR>
+                <TD width="200" height="200">
+                </TD>
+                <TD width="800" height="800">
+                     <img src="../imagenes/Cartoon_Robot.png" align="Center" height="800" width="650"/>
+                </TD>
+                <TD width="800" height="800">
+                    <h2>Nombre del Bot</h2>
+                </TD>
+            </TR>
+        </TABLE>
     </div>
-    <div align=""><img src="../imagenes/Cartoon_Robot.png" height="600" width="600"/></div>
-
-    </div>
-    <div class="container">
-            {% block body %}{% endblock %}
-     </div>
 </body>
 </html>

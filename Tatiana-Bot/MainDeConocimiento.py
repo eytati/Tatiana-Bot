@@ -55,12 +55,30 @@ def modulo_aritmetico(operacion, numero1, numero2):
     resultado_de_operacion = Aprender()
     return str(resultado_de_operacion.modulo_aritmetico(operacion_int, numero_int1, numero_int2))
 
+
+class Aprender:
+  def opereciones(self, numero):
+        primo = True
+        if numero is 2:
+            primo = True
+        elif numero % 2 is 0:
+            primo = False
+        else:
+            mediaRelativa = int((numero - 1) / 2)
+            for contador in range(3, mediaRelativa):
+                if numero % contador is 0:
+                    primo = False
+                    break
+        return primo
+
 #---------------------Ruta de aprender a identificar los numeros primos------------------------------#
 @app.route('/api/aprender/primo/<numero>', methods=['GET', 'POST'])
 def primo(numero):
     resultado_de_primo = Aprender()
     primo2 = int(numero)
-    return str(resultado_de_primo.es_primo(primo2))
+    return str(resultado_de_primo.opereciones(primo2))
+
+
 
 
 '''

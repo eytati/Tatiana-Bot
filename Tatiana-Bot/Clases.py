@@ -55,3 +55,4 @@ class Primo(Operacion):
                     primo = False
                     break
         return primo
+
