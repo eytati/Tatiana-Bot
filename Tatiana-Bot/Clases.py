@@ -56,3 +56,10 @@ class Primo(Operacion):
                     break
         return primo
 
+class Pitagoras (Operacion):
+    def __init__(self):
+        Operacion.__init__(self)
+
+    def calcular_hipotenusa(self, numero1, numero2):
+        numero1+numero2
+
