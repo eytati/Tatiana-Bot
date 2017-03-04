@@ -1,4 +1,5 @@
 from abc import ABCMeta, abstractmethod
+
 from _weakrefset import WeakSet
 
 class Operacion:
@@ -56,10 +57,38 @@ class Primo(Operacion):
                     break
         return primo
 
+class Potencias(Operacion):
+
+    def __init__(self):
+        Operacion.__init__(self)
+
+    def calculo_de_potencias(self,numero1, numero2):
+        numero_final =numero1
+        for contador in range(0, numero2):
+            numero_final = numero_final * numero1
+        return numero_final
+
+
 class Pitagoras (Operacion):
     def __init__(self):
         Operacion.__init__(self)
 
     def calcular_hipotenusa(self, numero1, numero2):
-        numero1+numero2
+        clase_calculo_de_potencias = Potencias();
+        cateto1_potencia = clase_calculo_de_potencias.calculo_de_potencias(numero1,2)
+        cateto2_potencia = clase_calculo_de_potencias.calculo_de_potencias(numero2,2)
+
+        hipotenusa = cateto1_potencia+cateto2_potencia
+        #raiz=math.sqrt(numero)
+        return hipotenusa
+
+
+    def calcular_catetos(self, numero1, numero2):
+        clase_calculo_de_potencias = Potencias();
+        cateto1_potencia = clase_calculo_de_potencias.calculo_de_potencias(numero1, 2)
+        hipotenusa_potencia = clase_calculo_de_potencias.calculo_de_potencias(numero2, 2)
+        cateto = hipotenusa_potencia- cateto1_potencia
+        # raiz=math.sqrt(numero)
+        return cateto
+
 
