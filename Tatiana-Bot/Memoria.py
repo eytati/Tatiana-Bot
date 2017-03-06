@@ -1,45 +1,57 @@
 class Memoria:
-    matriz = [None, None,], [None,None]
+    matriz = []
     instance = None
 
     def __init__(self):
         if not Memoria.instance:
             Memoria.instance = self
 
-    def Agregar(self):
-        a= len(self.matriz)
-        for lineas in range(len(self.matriz)):
-           if lineas is a:
-            self.matriz.append([])
-            for columna in range(len(self.matriz)):
-                self.Agrega_columna(lineas)
+    def Aumento_de_memoria(self):
 
+       if len(self.matriz) is 0:
+           self.matriz.append([])
+           self.matriz[0].append(None)
+       else:
+           largo_matriz = len(self.matriz)
+           self.matriz.append([])
+           for intento2000 in range (0,largo_matriz):
+                self.matriz[len(self.matriz)-1].append(None)
+                '''
+           for lineas in range(0,len(self.matriz)):
+                for columnas in range(0, len(self.matriz[lineas])):
+                    if lineas is len(self.matriz[lineas]) - 1:
+                        self.matriz[lineas].append([])
+'''
     def Aprender(self, conocimiento):
         ingreso_en_matriz = False
-        for lineas in range(len(self.matriz)):
+        for lineas in range(len(self.matriz)-1):
             if ingreso_en_matriz:
                 break
-            for columna in range(len(self.matriz)):
+            for columna in range(len(self.matriz[lineas])-1):
                 if self.matriz[lineas][columna] is None:
                     self.matriz[lineas][columna]= conocimiento
                     ingreso_en_matriz = True
                     break
         if not ingreso_en_matriz:
-            self.Agregar()
-            self.Aprender(conocimiento)
+            self. Aumento_de_memoria()
+           # self.matriz[len(self.matriz)-1][0]= conocimiento
 
     def __getattr__(self, conocimiento):
         return getattr(self.instance, conocimiento)
 
+    def imprimir(self):
+        cadena_de_sring=''
+        for linea in range(len(self.matriz)-1):
+            for columna in range (len(self.matriz[linea])):
+                cadena_de_sring += str(self.matriz[linea][columna])
+            cadena_de_sring += '\n'
+        return cadena_de_sring
 
 a = Memoria()
-a.Aprender('HOLA')
-a.Aprender('HOLA')
-a.Aprender('HOLA')
-a.Aprender('HOLA')
-a.Aprender('HOLA')
-print(a.matriz)
+a.Aprender(1)
 
+print(a.imprimir())
+print(a.matriz)
 '''
     def Eliminar_conocimiento(self, linea, columna):
         self.matriz[linea,columna] = ''
@@ -54,3 +66,4 @@ print(a.matriz)
     def Obtener_conocimiento(self, linea, columna):
         return
 '''
+

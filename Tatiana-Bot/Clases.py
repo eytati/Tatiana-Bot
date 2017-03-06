@@ -1,6 +1,11 @@
 from abc import ABCMeta, abstractmethod
 
+import math
+
 from _weakrefset import WeakSet
+
+
+
 
 class Operacion:
     __metaclass__ = ABCMeta
@@ -79,7 +84,7 @@ class Pitagoras (Operacion):
         cateto2_potencia = clase_calculo_de_potencias.calculo_de_potencias(numero2,2)
 
         hipotenusa = cateto1_potencia+cateto2_potencia
-        #raiz=math.sqrt(numero)
+        hipotenusa=math.sqrt(hipotenusa)
         return hipotenusa
 
 
@@ -88,7 +93,7 @@ class Pitagoras (Operacion):
         cateto1_potencia = clase_calculo_de_potencias.calculo_de_potencias(numero1, 2)
         hipotenusa_potencia = clase_calculo_de_potencias.calculo_de_potencias(numero2, 2)
         cateto = hipotenusa_potencia- cateto1_potencia
-        # raiz=math.sqrt(numero)
+        cateto=math.sqrt(cateto)
         return cateto
 
 
