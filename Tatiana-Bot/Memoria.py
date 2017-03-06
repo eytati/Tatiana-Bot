@@ -15,13 +15,13 @@ class Memoria:
            largo_matriz = len(self.matriz)
            self.matriz.append([])
            for intento2000 in range (0,largo_matriz):
-                self.matriz[len(self.matriz)-1].append(None)
-                '''
+               self.matriz[len(self.matriz)-1].append(None)
+
            for lineas in range(0,len(self.matriz)):
                 for columnas in range(0, len(self.matriz[lineas])):
-                    if lineas is len(self.matriz[lineas]) - 1:
-                        self.matriz[lineas].append([])
-'''
+                    if columnas is len(self.matriz[lineas]) - 1:
+                        self.matriz[lineas].append(None)
+
     def Aprender(self, conocimiento):
         ingreso_en_matriz = False
         for lineas in range(len(self.matriz)-1):
@@ -34,7 +34,7 @@ class Memoria:
                     break
         if not ingreso_en_matriz:
             self. Aumento_de_memoria()
-           # self.matriz[len(self.matriz)-1][0]= conocimiento
+            self.matriz[0][len(self.matriz)-1]= conocimiento
 
     def __getattr__(self, conocimiento):
         return getattr(self.instance, conocimiento)
@@ -49,6 +49,12 @@ class Memoria:
 
 a = Memoria()
 a.Aprender(1)
+a.Aprender(2)
+a.Aprender(3)
+a.Aprender(4)
+a.Aprender(5)
+a.Aprender(6)
+a.Aprender(7)
 
 print(a.imprimir())
 print(a.matriz)
