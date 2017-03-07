@@ -19,15 +19,16 @@ class Memoria:
 
            for lineas in range(0,len(self.matriz)):
                 for columnas in range(0, len(self.matriz[lineas])):
-                    if columnas is len(self.matriz[lineas]) - 1:
+                    if columnas is len(self.matriz[lineas]) -1:
                         self.matriz[lineas].append(None)
+                        break
 
     def Aprender(self, conocimiento):
         ingreso_en_matriz = False
-        for lineas in range(len(self.matriz)-1):
+        for lineas in range(0,len(self.matriz)):
             if ingreso_en_matriz:
                 break
-            for columna in range(len(self.matriz[lineas])-1):
+            for columna in range(len(self.matriz[lineas])):
                 if self.matriz[lineas][columna] is None:
                     self.matriz[lineas][columna]= conocimiento
                     ingreso_en_matriz = True
@@ -39,37 +40,24 @@ class Memoria:
     def __getattr__(self, conocimiento):
         return getattr(self.instance, conocimiento)
 
+    def desaprender(self, desaprender):
+        for linea in range(len(self.matriz)):
+            for columna in range(len(self.matriz[linea])):
+                if desaprender is self.matriz[linea][columna]:
+                    self.matriz[linea][columna] = None
+
     def imprimir(self):
         cadena_de_sring=''
-        for linea in range(len(self.matriz)-1):
+        for linea in range(len(self.matriz)):
             for columna in range (len(self.matriz[linea])):
-                cadena_de_sring += str(self.matriz[linea][columna])
+                cadena_de_sring += str(self.matriz[linea][columna])+ ' '
             cadena_de_sring += '\n'
         return cadena_de_sring
 
+
+
 a = Memoria()
-a.Aprender(1)
-a.Aprender(2)
-a.Aprender(3)
-a.Aprender(4)
-a.Aprender(5)
-a.Aprender(6)
-a.Aprender(7)
-
+b = Operacion()
 print(a.imprimir())
-print(a.matriz)
-'''
-    def Eliminar_conocimiento(self, linea, columna):
-        self.matriz[linea,columna] = ''
-        return
 
-    def Eliminar_conocimiento(self, id_conocimiento):
-        return
-
-    def Tamaño_actual(self):
-        return
-
-    def Obtener_conocimiento(self, linea, columna):
-        return
-'''
 

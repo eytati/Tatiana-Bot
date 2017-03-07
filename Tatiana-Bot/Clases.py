@@ -2,11 +2,6 @@ from abc import ABCMeta, abstractmethod
 
 import math
 
-from _weakrefset import WeakSet
-
-
-
-
 class Operacion:
     __metaclass__ = ABCMeta
 
@@ -48,7 +43,7 @@ class Primo(Operacion):
     def __init__(self):
         Operacion.__init__(self)
 
-    def opereciones(self, numero):
+    def opereciones(self, numero, numero2=0):
         primo = True
         if numero is 2:
             primo = True
@@ -67,7 +62,7 @@ class Potencias(Operacion):
     def __init__(self):
         Operacion.__init__(self)
 
-    def calculo_de_potencias(self,numero1, numero2):
+    def opereciones(self, numero1, numero2):
         numero_final =numero1
         for contador in range(0, numero2):
             numero_final = numero_final * numero1
@@ -79,9 +74,9 @@ class Pitagoras (Operacion):
         Operacion.__init__(self)
 
     def calcular_hipotenusa(self, numero1, numero2):
-        clase_calculo_de_potencias = Potencias();
-        cateto1_potencia = clase_calculo_de_potencias.calculo_de_potencias(numero1,2)
-        cateto2_potencia = clase_calculo_de_potencias.calculo_de_potencias(numero2,2)
+        clase_calculo_de_potencias = Potencias()
+        cateto1_potencia = clase_calculo_de_potencias.opereciones(numero1,2)
+        cateto2_potencia = clase_calculo_de_potencias.opereciones(numero2,2)
 
         hipotenusa = cateto1_potencia+cateto2_potencia
         hipotenusa=math.sqrt(hipotenusa)
@@ -89,11 +84,25 @@ class Pitagoras (Operacion):
 
 
     def calcular_catetos(self, numero1, numero2):
-        clase_calculo_de_potencias = Potencias();
-        cateto1_potencia = clase_calculo_de_potencias.calculo_de_potencias(numero1, 2)
-        hipotenusa_potencia = clase_calculo_de_potencias.calculo_de_potencias(numero2, 2)
+        clase_calculo_de_potencias = Potencias()
+        cateto1_potencia = clase_calculo_de_potencias.opereciones(numero1, 2)
+        hipotenusa_potencia = clase_calculo_de_potencias.opereciones(numero2, 2)
         cateto = hipotenusa_potencia- cateto1_potencia
         cateto=math.sqrt(cateto)
         return cateto
+
+    def opereciones(self, parametro1, parametro2):
+        tipo = 1
+
+        if tipo is 1:
+              respuesta =self.calcular_hipotenusa(parametro1, parametro2)
+        else:
+            respuesta= self.calcular_catetos(parametro1, parametro2)
+
+        return  respuesta
+
+
+
+
 
 
