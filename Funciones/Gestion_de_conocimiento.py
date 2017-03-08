@@ -78,5 +78,8 @@ class Fuente_de_conocimiento:
         else:
             self.Aprender(Operaciones.Primo)
 
+    #def reproducir:
+
+
 
 creacion_de_memoria = Memoria()

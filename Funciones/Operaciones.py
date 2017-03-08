@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 
 import math
-
+#------------------------------------------Clase base es Operacion-----------------------------------------------------#
 class Operacion:
     __metaclass__ = ABCMeta
 
@@ -9,35 +9,68 @@ class Operacion:
     def opereciones(self, parametro1, parametro2):
         return
 
+#------------------------------------------Fin de la claes operacion---------------------------------------------------#
+
+
+#-------------------------------------------Inicio de clase suma-------------------------------------------------------#
 class Suma(Operacion):
+
+    __nombre = ''
+
     def __init__(self):
         Operacion.__init__(self)
+        self.__nombre = 'Suma'
 
     def opereciones(self, numero1, numero2):
         return numero1+numero2
 
+    def get(self):
+        return self.__nombre
+#---------------------------------------------Fin de la clase suma-----------------------------------------------------#
+
+
+#--------------------------------------------Inicio de la claes Resta--------------------------------------------------#
 class Resta(Operacion):
+    __nombre=''
+
     def __init__(self):
         Operacion.__init__(self)
+        self.__nombre = 'Resta'
 
     def opereciones(self, numero1, numero2):
         return numero1-numero2
 
+    def get(self):
+        return self.__nombre
+#---------------------------------------------Fin de la clase resta----------------------------------------------------#
+
+
+#---------------------------------------------Inicio de la clase division----------------------------------------------#
 
 class Division(Operacion):
+    __nombre = ''
+
     def __init__(self):
         Operacion.__init__(self)
+        self.__nombre =  'Division'
 
     def opereciones(self, numero1, numero2):
         return numero1/numero2
 
+#---------------------------------------------Fin de la clase division-------------------------------------------------#
+
+
+#---------------------------------------------Inicio de la clase multipliacion-----------------------------------------#
 class Multiplicacion(Operacion):
     def __init__(self):
         Operacion.__init__(self)
 
     def opereciones(self, numero1, numero2):
         return numero1 *numero2
+#----------------------------------------Fin de la clase multiplicacion------------------------------------------------#
 
+
+#---------------------------------------------Inicio de la clase Primo-------------------------------------------------#
 class Primo(Operacion):
     def __init__(self):
         Operacion.__init__(self)
@@ -55,7 +88,10 @@ class Primo(Operacion):
                     primo = False
                     break
         return primo
+#-------------------------------------------Fin de la clase primo------------------------------------------------------#
 
+
+#-------------------------------------------Inicio de la clase Potencias-----------------------------------------------#
 class Potencias(Operacion):
 
     def __init__(self):
@@ -66,9 +102,12 @@ class Potencias(Operacion):
         for contador in range(0, numero2):
             numero_final = numero_final * numero1
         return numero_final
+#-------------------------------------------Fin de la clase potencias--------------------------------------------------#
 
 
+#------------------------------------------Inicio de la clase Pitagoras------------------------------------------------#
 class Pitagoras (Operacion):
+
     def __init__(self):
         Operacion.__init__(self)
 
@@ -99,3 +138,4 @@ class Pitagoras (Operacion):
             respuesta= self.calcular_catetos(parametro1, parametro2)
 
         return  respuesta
+#---------------------------------------Fin de la clase pitagoras------------------------------------------------------#
