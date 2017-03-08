@@ -1,5 +1,6 @@
 from flask import Flask,render_template, request, jsonify, json
 from werkzeug.security import generate_password_hash
+from Funciones import Gestion_de_conocimiento
 
 app = Flask(__name__)
 
@@ -21,81 +22,75 @@ class Informacion():
         return generate_password_hash(palabra_clave)
 
 
-#-------------------------------Ruta de Informacion General---------------------------------------------#
+#----------------------------------------Ruta de Informacion General---------------------------------------------------#
 @app.route('/api/informacion_del_bot')
 def informacion_del_bot():
 
     return render_template('Informacion.html')
 
-#-------------------------------Ruta de Obencion de hash------------------------------------------------#
+#---------------------------------------Ruta de Obencion de hash-------------------------------------------------------#
 @app.route('/prueba<valor>')
 def prueba(valor):
     obtener_hash = Informacion()
     return str(obtener_hash.Valor_de_hash(valor))
 
 
-#-------------------------------Ruta que va al menu principal------------------------------------------#
+#-----------------------------------------Ruta que va al menu principal------------------------------------------------#
 @app.route('/api/principal')
 def principal():
     return  render_template('Index2.html')
 
 
-#-------------------------------Ruta del menu de aprender----------------------------------------------#
-@app.route('/api/aprender')
-def aprender():
-    return 'hola'
+#----------------------------------Metodo principal de instancia a Memoria---------------------------------------------#
+def solicitar_instancia(tipo):
+        Gestion_de_conocimiento.Fuente_de_conocimiento.Aprender(tipo)
+        
 
+#--------------------------------Aprender, rutas generales-------------------------------------------------------------#
 
-#-------------------------------Ruta de aprender operaciones basicas----------------------------------#
-@app.route('/api/aprender/ModuloAritmetico/<operacion>/<numero1>/<numero2>', methods=['GET','POST'])
-def modulo_aritmetico(operacion, numero1, numero2):
-    operacion_int = int(operacion)
-    numero_int1 = int(numero1)
-    numero_int2 = int(numero2)
-    resultado_de_operacion = Aprender()
-    return str(resultado_de_operacion.modulo_aritmetico(operacion_int, numero_int1, numero_int2))
+#--------------------------------Ruta General de Aprender--------------------------------------------------------------#
+@app.route('/api/aprender_menu')
+def aprender_menu():
+    return 'Hola' #Retorna hola por que aun no hay menu
 
+#----------------------------------Ruta para suma----------------------------------------------------------------------#
+@app.route('/api/aprender_menu/suma>')
+def suma():
+    return solicitar_instancia('Suma') #LLama instancia de un metodo de aprender
 
-class Aprender:
-  def opereciones(self, numero):
-        primo = True
-        if numero is 2:
-            primo = True
-        elif numero % 2 is 0:
-            primo = False
-        else:
-            mediaRelativa = int((numero - 1) / 2)
-            for contador in range(3, mediaRelativa):
-                if numero % contador is 0:
-                    primo = False
-                    break
-        return primo
+#--------------------------------Ruta para resta-----------------------------------------------------------------------#
+@app.route('/api/aprender_menu/resta')
+def resta():
+    return solicitar_instancia('Resta') #LLama instancia de un metodo de aprender
 
-#---------------------Ruta de aprender a identificar los numeros primos------------------------------#
-@app.route('/api/aprender/primo/<numero>', methods=['GET', 'POST'])
-def primo(numero):
-    resultado_de_primo = Aprender()
-    primo2 = int(numero)
-    return str(resultado_de_primo.opereciones(primo2))
+#--------------------------------Ruta para division--------------------------------------------------------------------#
+@app.route('/api/aprender_menu/division')
+def division():
+    return solicitar_instancia('Division') #LLama instancia de un metodo de aprender
 
+#--------------------------------Ruta para multiplicacion--------------------------------------------------------------#
+@app.route('/api/aprender_menu/multiplicacion')
+def multiplicacion():
+    return solicitar_instancia('Multiplicacion') #LLama instancia de un metodo de aprender
 
+#-------------------------------------Ruta para pitagoras--------------------------------------------------------------#
+@app.route('/api/aprender_menu/pitagoras')
+def pitagoras():
+    return solicitar_instancia('Pitagoras') #LLama instancia de un metodo de aprender
 
+#-------------------------------------Ruta para potencias--------------------------------------------------------------#
+@app.route('/api/aprender_menu/potencias')
+def potencias():
+    return solicitar_instancia('Potencias') #LLama instancia de un metodo de aprender
 
-'''
-class Lista_de_Conocimento:
-    @app.route('/lista_actual')
-    def lista_actual(slef):
-        return
+#-------------------------------------Ruta para potencias--------------------------------------------------------------#
+@app.route('/api/aprender_menu/prima')
+def primo():
+    return solicitar_instancia('Primo') #LLama instancia de un metodo de aprender
 
-    def buscar_videos(self):
+#---------------------------------------Fin de las rutas de aprender---------------------------------------------------#
 
-        return
-
-    def toma_fotos(self):
-
-        return
-'''
-
+#-------------------------------Funciona----------------------------------------------------------#
 #-------------------------------Donde se accede y el inicio-----------------------------------------#
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port='5001')

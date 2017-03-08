@@ -99,9 +99,3 @@ class Pitagoras (Operacion):
             respuesta= self.calcular_catetos(parametro1, parametro2)
 
         return  respuesta
-
-
-
-
-
-
