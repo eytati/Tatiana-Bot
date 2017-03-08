@@ -31,7 +31,6 @@ class Division(Operacion):
     def opereciones(self, numero1, numero2):
         return numero1/numero2
 
-
 class Multiplicacion(Operacion):
     def __init__(self):
         Operacion.__init__(self)

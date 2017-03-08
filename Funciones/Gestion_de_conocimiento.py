@@ -1,3 +1,5 @@
+from  Funciones import Operaciones
+
 class Memoria:
     matriz = []
     instance = None
@@ -26,9 +28,10 @@ class Memoria:
     def Aprender(self, conocimiento):
         ingreso_en_matriz = False
         for lineas in range(0,len(self.matriz)):
-            if ingreso_en_matriz:
-                break
-            for columna in range(len(self.matriz[lineas])):
+           if ingreso_en_matriz:
+               break
+
+           for columna in range(len(self.matriz[lineas])):
                 if self.matriz[lineas][columna] is None:
                     self.matriz[lineas][columna]= conocimiento
                     ingreso_en_matriz = True
@@ -36,9 +39,6 @@ class Memoria:
         if not ingreso_en_matriz:
             self. Aumento_de_memoria()
             self.matriz[0][len(self.matriz)-1]= conocimiento
-
-    def __getattr__(self, conocimiento):
-        return getattr(self.instance, conocimiento)
 
     def desaprender(self, desaprender):
         for linea in range(len(self.matriz)):
@@ -54,10 +54,28 @@ class Memoria:
             cadena_de_sring += '\n'
         return cadena_de_sring
 
+    def instan (self, tipo):
+        if tipo is 'Suma':
+            self.Aprender(Operaciones.Suma())
+
+        elif tipo is 'Resta':
+            self.Aprender(Operaciones.Resta())
+
+        elif tipo is 'Division':
+            self.Aprender(Operaciones.Division())
+
+        elif tipo is 'Multipliacion':
+            self.Aprender(Operaciones.Multiplicacion)
+
+        elif tipo is 'Pitagoras':
+            self.Aprender(Operaciones.Pitagoras)
+
+        elif tipo is 'Potencias':
+            self.Aprender(Operaciones.Potencias)
+
+        else:
+            self.Aprender(Operaciones.Primo)
 
 
-a = Memoria()
-b = Operacion()
-print(a.imprimir())
-
+creacion_de_memoria = Memoria()
 
