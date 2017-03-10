@@ -73,38 +73,47 @@ class Fuente_de_conocimiento:
     creacion_de_memoria = Memoria()
 
     def Aprender (self, tipo):
-
+        agrego = False
         if tipo is 'Suma':
             suma = Operaciones.Suma ()
             self.creacion_de_memoria.aprender(suma)
+            agrego = True
 
         elif tipo is 'Resta':
             self.creacion_de_memoria.aprender(Operaciones.Resta())
+            agrego = True
 
         elif tipo is 'Division':
             self.creacion_de_memoria.aprender(Operaciones.Division())
+            agrego = True
 
         elif tipo is 'Multiplicacion':
             self.creacion_de_memoria.aprender(Operaciones.Multiplicacion())
+            agrego = True
 
         elif tipo is 'pitagoras_cateto':
             self.creacion_de_memoria.aprender(Operaciones.piatgoras_cateto())
+            agrego = True
 
         elif tipo is 'pitagoras_hipotenusa':
             self.creacion_de_memoria.aprender(Operaciones.Pitagoras_hipotenusa())
-
+            agrego = True
 
         elif tipo is 'Potencias':
             self.creacion_de_memoria.aprender(Operaciones.Potencias())
+            agrego = True
 
-        else:
+        elif tipo is 'Primo':
             self.creacion_de_memoria.aprender(Operaciones.Primo())
+            agrego = True
 
-        return
+        return agrego
+
     def ejercer_conocimiento(self, nombre, parametro1, parametro2):
         self.creacion_de_memoria.recorre_matriz(nombre, parametro1, parametro2)
         print(self.creacion_de_memoria.matriz)
 
+'''
 conocimiento = Fuente_de_conocimiento()
 conocimiento.Aprender('Suma')
 conocimiento.Aprender('Resta')
@@ -112,5 +121,5 @@ conocimiento.Aprender('Potencias')
 conocimiento.Aprender('Primo')
 conocimiento.Aprender('Suma')
 conocimiento.ejercer_conocimiento('Primo', 6, 2)
-
+'''
 
