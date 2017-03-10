@@ -54,32 +54,63 @@ class Memoria:
             cadena_de_sring += '\n'
         return cadena_de_sring
 
+    def recorre_matriz(self, nombre, parametro1, parametro2):
+        existe= False
+        for linea in range(len(self.matriz)):
+            if existe is True:
+                break
+            for columna in range (len(self.matriz[linea])):
+                if not self.matriz[linea][columna] is None:
+                    instancia = self.matriz[linea][columna]
+                    if nombre is instancia.get():
+                        respuesta = instancia.opereciones(parametro1, parametro2)
+                        print(respuesta)
+                        existe = True
+                        break
+
 
 class Fuente_de_conocimiento:
+    creacion_de_memoria = Memoria()
+
     def Aprender (self, tipo):
+
         if tipo is 'Suma':
-            self.Aprender(Operaciones.Suma())
+            suma = Operaciones.Suma ()
+            self.creacion_de_memoria.aprender(suma)
 
         elif tipo is 'Resta':
-            self.Aprender(Operaciones.Resta())
+            self.creacion_de_memoria.aprender(Operaciones.Resta())
 
         elif tipo is 'Division':
-            self.Aprender(Operaciones.Division())
+            self.creacion_de_memoria.aprender(Operaciones.Division())
 
         elif tipo is 'Multiplicacion':
-            self.Aprender(Operaciones.Multiplicacion)
+            self.creacion_de_memoria.aprender(Operaciones.Multiplicacion())
 
-        elif tipo is 'Pitagoras':
-            self.Aprender(Operaciones.Pitagoras)
+        elif tipo is 'pitagoras_cateto':
+            self.creacion_de_memoria.aprender(Operaciones.piatgoras_cateto())
+
+        elif tipo is 'pitagoras_hipotenusa':
+            self.creacion_de_memoria.aprender(Operaciones.Pitagoras_hipotenusa())
+
 
         elif tipo is 'Potencias':
-            self.Aprender(Operaciones.Potencias)
+            self.creacion_de_memoria.aprender(Operaciones.Potencias())
 
         else:
-            self.Aprender(Operaciones.Primo)
+            self.creacion_de_memoria.aprender(Operaciones.Primo())
 
-    #def reproducir:
+        return
+    def ejercer_conocimiento(self, nombre, parametro1, parametro2):
+        self.creacion_de_memoria.recorre_matriz(nombre, parametro1, parametro2)
+        print(self.creacion_de_memoria.matriz)
+
+conocimiento = Fuente_de_conocimiento()
+conocimiento.Aprender('Suma')
+conocimiento.Aprender('Resta')
+conocimiento.Aprender('Potencias')
+conocimiento.Aprender('Primo')
+conocimiento.Aprender('Suma')
+conocimiento.ejercer_conocimiento('Primo', 6, 2)
 
 
-
-creacion_de_memoria = Memoria()
