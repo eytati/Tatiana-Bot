@@ -4,11 +4,14 @@ from  Funciones import Operaciones
 class Memoria:
     matriz = []
     instance = None
-
+#-------------------------------------Inicio de constructor------------------------------------------------------------#
     def __init__(self):
         if not Memoria.instance:
             Memoria.instance = self
+#----------------------------------------Fin de conocimiento-----------------------------------------------------------#
 
+
+#------------------------------------Aumenta el tamaño de la memoria segun sea necesario-------------------------------#
     def aumentar_memoria(self):
 
         if len(self.matriz) is 0:
@@ -26,6 +29,12 @@ class Memoria:
                         self.matriz[lineas].append(None)
                         break
 
+#------------------------------------Fin de aumentar el tamaño de la memoria-------------------------------------------#
+
+
+
+#------------------------------Es el metodo para guardar los datos en la memoria---------------------------------------#
+
     def aprender(self, conocimiento):
         ingreso_en_matriz = False
         for lineas in range(0, len(self.matriz)):
@@ -41,11 +50,18 @@ class Memoria:
             self.aumentar_memoria()
             self.matriz[0][len(self.matriz) - 1] = conocimiento
 
+#------------------------------Fin del metodo para guardar los datos en la memoria-------------------------------------#
+
+
+
+#------------------------------Inicio del metodo para borrar los datos en la memoria-----------------------------------#
     def desaprender(self, olvida):
         for linea in range(len(self.matriz)):
             for columna in range(len(self.matriz[linea])):
                 if olvida is self.matriz[linea][columna]:
                     self.matriz[linea][columna] = None
+
+#------------------------------Fin del metodo para borrar los datos en la memoria-------------------------------------#
 
     def imprimir(self):
         cadena_de_sring = ''
@@ -54,6 +70,8 @@ class Memoria:
                 cadena_de_sring += str(self.matriz[linea][columna]) + ' '
             cadena_de_sring += '\n'
         return cadena_de_sring
+
+#--------------------------------------Recorre la memoria--------------------------------------------------------------#
 
     def recorre_matriz(self, nombre, parametro1, parametro2):
         existe = False
@@ -70,11 +88,13 @@ class Memoria:
                         existe = True
                         break
         return respuesta
+#------------------------------------Fin de recorrer la memoria--------------------------------------------------------#
 
 
 class Fuente_de_conocimiento:
     creacion_de_memoria = Memoria()
 
+#------------------------------------Instanciar los datos a la memoria-------------------------------------------------#
     def Aprender(self, tipo):
         agrego = False
         if tipo is 'Suma':
@@ -111,10 +131,15 @@ class Fuente_de_conocimiento:
             agrego = True
 
         return agrego
+#----------------------------------Fin de instanciar los datos a la memoria--------------------------------------------#
+
+
+#------------------------------------Accionar los conocimientos de la memoria------------------------------------------#
 
     def ejercer_conocimiento(self, nombre, parametro1, parametro2):
         return self.creacion_de_memoria.recorre_matriz(nombre, parametro1, parametro2)
 
+#------------------------------Fin de accionar los conocimientos de la memoria-----------------------------------------#
 
 '''
 conocimiento = Fuente_de_conocimiento()
