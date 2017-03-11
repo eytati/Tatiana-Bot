@@ -1,5 +1,6 @@
 from  Funciones import Operaciones
 
+
 class Memoria:
     matriz = []
     instance = None
@@ -10,35 +11,35 @@ class Memoria:
 
     def aumentar_memoria(self):
 
-       if len(self.matriz) is 0:
-           self.matriz.append([])
-           self.matriz[0].append(None)
-       else:
-           largo_matriz = len(self.matriz)
-           self.matriz.append([])
-           for agregar_las_columnas in range (0,largo_matriz):
-               self.matriz[len(self.matriz)-1].append(None)
+        if len(self.matriz) is 0:
+            self.matriz.append([])
+            self.matriz[0].append(None)
+        else:
+            largo_matriz = len(self.matriz)
+            self.matriz.append([])
+            for agregar_las_columnas in range(0, largo_matriz):
+                self.matriz[len(self.matriz) - 1].append(None)
 
-           for lineas in range(0,len(self.matriz)):
+            for lineas in range(0, len(self.matriz)):
                 for columnas in range(0, len(self.matriz[lineas])):
-                    if columnas is len(self.matriz[lineas]) -1:
+                    if columnas is len(self.matriz[lineas]) - 1:
                         self.matriz[lineas].append(None)
                         break
 
     def aprender(self, conocimiento):
         ingreso_en_matriz = False
-        for lineas in range(0,len(self.matriz)):
-           if ingreso_en_matriz:
-               break
+        for lineas in range(0, len(self.matriz)):
+            if ingreso_en_matriz:
+                break
 
-           for columna in range(len(self.matriz[lineas])):
+            for columna in range(len(self.matriz[lineas])):
                 if self.matriz[lineas][columna] is None:
-                    self.matriz[lineas][columna]= conocimiento
+                    self.matriz[lineas][columna] = conocimiento
                     ingreso_en_matriz = True
                     break
         if not ingreso_en_matriz:
-            self. aumentar_memoria()
-            self.matriz[0][len(self.matriz)-1]= conocimiento
+            self.aumentar_memoria()
+            self.matriz[0][len(self.matriz) - 1] = conocimiento
 
     def desaprender(self, olvida):
         for linea in range(len(self.matriz)):
@@ -47,19 +48,20 @@ class Memoria:
                     self.matriz[linea][columna] = None
 
     def imprimir(self):
-        cadena_de_sring=''
+        cadena_de_sring = ''
         for linea in range(len(self.matriz)):
-            for columna in range (len(self.matriz[linea])):
-                cadena_de_sring += str(self.matriz[linea][columna])+ ' '
+            for columna in range(len(self.matriz[linea])):
+                cadena_de_sring += str(self.matriz[linea][columna]) + ' '
             cadena_de_sring += '\n'
         return cadena_de_sring
 
     def recorre_matriz(self, nombre, parametro1, parametro2):
-        existe= False
+        existe = False
+        respuesta= ''
         for linea in range(len(self.matriz)):
             if existe is True:
                 break
-            for columna in range (len(self.matriz[linea])):
+            for columna in range(len(self.matriz[linea])):
                 if not self.matriz[linea][columna] is None:
                     instancia = self.matriz[linea][columna]
                     if nombre is instancia.get():
@@ -67,15 +69,16 @@ class Memoria:
                         print(respuesta)
                         existe = True
                         break
+        return respuesta
 
 
 class Fuente_de_conocimiento:
     creacion_de_memoria = Memoria()
 
-    def Aprender (self, tipo):
+    def Aprender(self, tipo):
         agrego = False
         if tipo is 'Suma':
-            suma = Operaciones.Suma ()
+            suma = Operaciones.Suma()
             self.creacion_de_memoria.aprender(suma)
             agrego = True
 
@@ -110,8 +113,9 @@ class Fuente_de_conocimiento:
         return agrego
 
     def ejercer_conocimiento(self, nombre, parametro1, parametro2):
-        self.creacion_de_memoria.recorre_matriz(nombre, parametro1, parametro2)
-        print(self.creacion_de_memoria.matriz)
+        return self.creacion_de_memoria.recorre_matriz(nombre, parametro1, parametro2)
+
+
 
 '''
 conocimiento = Fuente_de_conocimiento()
@@ -122,4 +126,3 @@ conocimiento.Aprender('Primo')
 conocimiento.Aprender('Suma')
 conocimiento.ejercer_conocimiento('Primo', 6, 2)
 '''
-

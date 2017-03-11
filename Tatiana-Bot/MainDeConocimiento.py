@@ -43,7 +43,8 @@ def principal():
 
 #----------------------------------Metodo principal de instancia a Memoria---------------------------------------------#
 def solicitar_instancia(tipo):
-      return str(Gestion_de_conocimiento.Fuente_de_conocimiento.Aprender(tipo))
+      instancia = Gestion_de_conocimiento.Fuente_de_conocimiento()
+      return str(instancia.Aprender(tipo))
         
 
 #--------------------------------Aprender, rutas generales-------------------------------------------------------------#
@@ -91,6 +92,7 @@ def aprender_potencias():
 #-------------------------------------Ruta para potencias--------------------------------------------------------------#
 @app.route('/api/aprender_menu/primo')
 def aprender_primo():
+
     return solicitar_instancia('Primo') #LLama instancia de un metodo de aprender
 
 #---------------------------------------Fin de las rutas de aprender---------------------------------------------------#
@@ -100,7 +102,8 @@ def aprender_primo():
 
 # ----------------------------------Metodo principal de instancia a Memoria---------------------------------------------#
 def accionar_conocimeiento(nombre, numero1, numero2):
-    Gestion_de_conocimiento.Fuente_de_conocimiento.ejercer_conocimiento(nombre, numero1, numero2)
+    instancia = Gestion_de_conocimiento.Fuente_de_conocimiento()
+    return str(instancia.ejercer_conocimiento(nombre, numero1, numero2))
 
 #--------------------------------Ruta General de Aprender--------------------------------------------------------------#
 @app.route('/api/conocimiento_menu')
@@ -145,9 +148,10 @@ def conocimiento_potencias(numero1, numero2):
     return accionar_conocimeiento('Potencias', numero1, numero2) #LLama instancia de un metodo de aprender
 
 #-------------------------------------Ruta para potencias--------------------------------------------------------------#
-@app.route('/api/conocimiento_menu/primo<numero1><numero2>')
-def conocimiento_primo(numero1, numero2):
-    return accionar_conocimeiento('Primo', numero1, numero2) #LLama instancia de un metodo de aprender
+@app.route('/api/conocimiento_menu/primo/<numero1>')
+def conocimiento_primo(numero1):
+    numero = int(numero1)
+    return accionar_conocimeiento('Primo', numero, 0) #LLama instancia de un metodo de aprender
 
 #---------------------------------------Fin de las rutas de aprender---------------------------------------------------#
 
