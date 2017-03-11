@@ -116,13 +116,14 @@ class Fuente_de_conocimiento:
         return self.creacion_de_memoria.recorre_matriz(nombre, parametro1, parametro2)
 
 
-
 '''
 conocimiento = Fuente_de_conocimiento()
 conocimiento.Aprender('Suma')
 conocimiento.Aprender('Resta')
+conocimiento.Aprender('Multiplicacion')
+
 conocimiento.Aprender('Potencias')
 conocimiento.Aprender('Primo')
 conocimiento.Aprender('Suma')
-conocimiento.ejercer_conocimiento('Primo', 6, 2)
+conocimiento.ejercer_conocimiento('Potencias', 6, 2)
 '''
