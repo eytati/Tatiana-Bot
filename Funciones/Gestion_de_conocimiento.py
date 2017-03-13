@@ -56,10 +56,18 @@ class Memoria:
 
 #------------------------------Inicio del metodo para borrar los datos en la memoria-----------------------------------#
     def desaprender(self, olvida):
-        for linea in range(len(self.matriz)):
-            for columna in range(len(self.matriz[linea])):
-                if olvida is self.matriz[linea][columna]:
+        desaprede = False
+        for linea in range(0, len(self.matriz)):
+            if desaprede is True:
+                break
+            for columna in range(0, len(self.matriz[linea])):
+                if self.matriz[linea][columna] is not None:
+                 if olvida is self.matriz[linea][columna].get():
                     self.matriz[linea][columna] = None
+                    desaprede = True
+                    break
+        return desaprede
+
 
 #------------------------------Fin del metodo para borrar los datos en la memoria-------------------------------------#
 
@@ -97,12 +105,13 @@ class Fuente_de_conocimiento:
 #------------------------------------Instanciar los datos a la memoria-------------------------------------------------#
     def Aprender(self, tipo):
         agrego = False
-        if tipo is 'Suma':
+        a = tipo
+        if tipo == 'Suma':
             suma = Operaciones.Suma()
             self.creacion_de_memoria.aprender(suma)
             agrego = True
 
-        elif tipo is 'Resta':
+        elif tipo == 'Resta':
             self.creacion_de_memoria.aprender(Operaciones.Resta())
             agrego = True
 
@@ -141,14 +150,17 @@ class Fuente_de_conocimiento:
 
 #------------------------------Fin de accionar los conocimientos de la memoria-----------------------------------------#
 
+#------------------------------------Accionar los conocimientos de la memoria------------------------------------------#
+    def olvidar(self, nombre):
+        return self.creacion_de_memoria.desaprender(nombre)
+
+#------------------------------Fin de accionar los conocimientos de la memoria-----------------------------------------#
 '''
 conocimiento = Fuente_de_conocimiento()
 conocimiento.Aprender('Suma')
-conocimiento.Aprender('Resta')
-conocimiento.Aprender('Multiplicacion')
 
-conocimiento.Aprender('Potencias')
-conocimiento.Aprender('Primo')
-conocimiento.Aprender('Suma')
-conocimiento.ejercer_conocimiento('Potencias', 6, 2)
+conocimiento.ejercer_conocimiento('Suma', 6, 2)
+print(conocimiento.olvidar('Suma'))
+conocimiento.ejercer_conocimiento('Suma', 6, 2)
 '''
+
