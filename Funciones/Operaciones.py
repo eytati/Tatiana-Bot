@@ -135,7 +135,7 @@ class Pitagoras_hipotenusa (Operacion):
 
     def __init__(self):
         Operacion.__init__(self)
-        self.__nombre = 'Pitagoras hipotenusa'
+        self.__nombre = 'Hipotenusa'
 
     def calcular_hipotenusa(self, numero1, numero2):
         clase_calculo_de_potencias = Potencias()
@@ -157,7 +157,7 @@ class piatgoras_cateto(Operacion):
 
     def __init__(self):
         Operacion.__init__(self)
-        self.__nombre = 'Pitagoras cateto'
+        self.__nombre = 'Cateto'
 
     def operaciones(self, numero1, numero2):
         clase_calculo_de_potencias = Potencias()

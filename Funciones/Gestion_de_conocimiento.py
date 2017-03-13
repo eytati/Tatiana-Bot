@@ -62,7 +62,7 @@ class Memoria:
                 break
             for columna in range(0, len(self.matriz[linea])):
                 if self.matriz[linea][columna] is not None:
-                 if olvida is self.matriz[linea][columna].get():
+                 if olvida == self.matriz[linea][columna].get():
                     self.matriz[linea][columna] = None
                     desaprede = True
                     break
@@ -90,7 +90,7 @@ class Memoria:
             for columna in range(len(self.matriz[linea])):
                 if not self.matriz[linea][columna] is None:
                     instancia = self.matriz[linea][columna]
-                    if nombre is instancia.get():
+                    if nombre == instancia.get():
                         respuesta = instancia.opereciones(parametro1, parametro2)
                         print(respuesta)
                         existe = True
@@ -115,27 +115,27 @@ class Fuente_de_conocimiento:
             self.creacion_de_memoria.aprender(Operaciones.Resta())
             agrego = True
 
-        elif tipo is 'Division':
+        elif tipo == 'Division':
             self.creacion_de_memoria.aprender(Operaciones.Division())
             agrego = True
 
-        elif tipo is 'Multiplicacion':
+        elif tipo == 'Multiplicacion':
             self.creacion_de_memoria.aprender(Operaciones.Multiplicacion())
             agrego = True
 
-        elif tipo is 'pitagoras_cateto':
+        elif tipo == 'Cateto':
             self.creacion_de_memoria.aprender(Operaciones.piatgoras_cateto())
             agrego = True
 
-        elif tipo is 'pitagoras_hipotenusa':
+        elif tipo == 'Hipotenusa':
             self.creacion_de_memoria.aprender(Operaciones.Pitagoras_hipotenusa())
             agrego = True
 
-        elif tipo is 'Potencias':
+        elif tipo == 'Potencias':
             self.creacion_de_memoria.aprender(Operaciones.Potencias())
             agrego = True
 
-        elif tipo is 'Primo':
+        elif tipo == 'Primo':
             self.creacion_de_memoria.aprender(Operaciones.Primo())
             agrego = True
 
@@ -155,6 +155,7 @@ class Fuente_de_conocimiento:
         return self.creacion_de_memoria.desaprender(nombre)
 
 #------------------------------Fin de accionar los conocimientos de la memoria-----------------------------------------#
+
 '''
 conocimiento = Fuente_de_conocimiento()
 conocimiento.Aprender('Suma')
