@@ -156,6 +156,12 @@ class Fuente_de_conocimiento:
 
 #------------------------------Fin de accionar los conocimientos de la memoria-----------------------------------------#
 
+    def aprender_externo(self, nombre, codigo):
+        return  self.creacion_de_memoria.aprender(Operaciones.aprender_externo(nombre, codigo))
+
+
+
+
 '''
 conocimiento = Fuente_de_conocimiento()
 conocimiento.Aprender('Suma')
