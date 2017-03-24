@@ -7,11 +7,6 @@ from  datetime import datetime
 
 app = Flask(__name__)
 
-@app.before_request
-def revicion_de_rutas():
-    direccion = request.url_rule
-    if direccion is None:
-        return "Ruta desconocida"
 
 class Informacion():
     # ----------------------------------Creacion de Hash--------------------------------------------------------------------#
@@ -22,7 +17,7 @@ class Informacion():
 
     def Informacion_general(self):
         identificador = self.Valor_de_hash("Tati-bot")
-        informacion = "Hola \nNombre: Tati-bot \n ID: " + identificador + "\nCreador: Eylen Fernandez" \
+        informacion = "Nombre: Tati-bot \n ID: " + identificador + "\nCreador: Eylen Fernandez" \
                                                                    "\n FechaDeCreacion: " + str(datetime.now())
         app.logger.info('Informacion General del bot')
         return informacion
@@ -65,15 +60,6 @@ def aprender_desaprender_menu(tipo):
     instancia_de_olvidar = Gestion_de_conocimiento.Fuente_de_conocimiento()
     return str(instancia_de_olvidar.olvidar(tipo))
 
-# --------------------------------Ruta de aprender externo--------------------------------------------------------------#
-@app.route('/api/aprender/externo', methods=['POST'])
-def aprender_externo():
-    nomb = request.json.get('nombre')
-    codi = request.json.get('codigo')
-    conversion_json = json.dumps(codi)
-    instancia =  Gestion_de_conocimiento.Fuente_de_conocimiento()
-    app.logger.info(str(datetime.now()) + 'Aprende externamente ' + nomb)
-    return str(instancia.aprender_externo(nomb, conversion_json))
 
 # ----------------------------------------Donde se accede y el inicio---------------------------------------------------#
 if __name__ == '__main__':
@@ -81,4 +67,3 @@ if __name__ == '__main__':
     handler.setLevel(logging.INFO)
     app.logger.addHandler(handler)
     app.run(host='127.0.0.1', port='5001')
-
