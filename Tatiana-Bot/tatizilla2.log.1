@@ -2,20 +2,22 @@ Exception on /api/aprender/externo [POST]
 Traceback (most recent call last):
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
-  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1615, in full_dispatch_request
-    return self.finalize_request(rv)
-  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1630, in finalize_request
-    response = self.make_response(rv)
-  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1740, in make_response
-    rv = self.response_class.force_type(rv, request.environ)
-  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\werkzeug\wrappers.py", line 847, in force_type
-    response = BaseResponse(*_run_wsgi_app(response, environ))
-  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\werkzeug\wrappers.py", line 57, in _run_wsgi_app
-    return _run_wsgi_app(*args)
-  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\werkzeug\test.py", line 871, in run_wsgi_app
-    app_rv = app(environ, start_response)
-TypeError: 'bool' object is not callable
-Exception on /api/conocimiento_menu/resta/5/2 [GET]
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot/MainDeConocimiento.py", line 77, in aprender_externo
+    return str(instancia.aprender_externo(nomb, parseo_de_json))
+  File "C:\Users\Tatiana\Documents\GitHub\Tatiana-bot\Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 160, in aprender_externo
+    return self.creacion_de_memoria.aprender(Operaciones.aprender_externo(nombre, codigo))
+AttributeError: module 'Funciones.Operaciones' has no attribute 'aprender_externo'
+Exception on /api/aprender/externo [POST]
 Traceback (most recent call last):
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -29,17 +31,12 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1598, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot/MainDeConocimiento.py", line 60, in conocimieto_menu
-    return str(instancia.ejercer_conocimiento(tipo, numero1_int, numero2_int))
-  File "C:\Users\Tatiana\Documents\GitHub\Tatiana-bot\Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 149, in ejercer_conocimiento
-    return self.creacion_de_memoria.recorre_matriz(nombre, parametro1, parametro2)
-  File "C:\Users\Tatiana\Documents\GitHub\Tatiana-bot\Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 94, in recorre_matriz
-    respuesta = instancia.operaciones(parametro1, parametro2)
-  File "C:\Users\Tatiana\Documents\GitHub\Tatiana-bot\Tatiana-Bot\Funciones\Operaciones.py", line 184, in operaciones
-    exec(self.__codigo)
-  File "<string>", line 1
-SyntaxError: 'return' outside function
-Exception on /api/conocimiento_menu/resta/5/2 [GET]
+  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot/MainDeConocimiento.py", line 77, in aprender_externo
+    return str(instancia.aprender_externo(nomb, parseo_de_json))
+  File "C:\Users\Tatiana\Documents\GitHub\Tatiana-bot\Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 160, in aprender_externo
+    return self.creacion_de_memoria.aprender(Operaciones.aprender_externo(nombre, codigo))
+AttributeError: module 'Funciones.Operaciones' has no attribute 'aprender_externo'
+Exception on /api/aprender/externo [POST]
 Traceback (most recent call last):
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -53,17 +50,12 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1598, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot/MainDeConocimiento.py", line 60, in conocimieto_menu
-    return str(instancia.ejercer_conocimiento(tipo, numero1_int, numero2_int))
-  File "C:\Users\Tatiana\Documents\GitHub\Tatiana-bot\Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 149, in ejercer_conocimiento
-    return self.creacion_de_memoria.recorre_matriz(nombre, parametro1, parametro2)
-  File "C:\Users\Tatiana\Documents\GitHub\Tatiana-bot\Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 94, in recorre_matriz
-    respuesta = instancia.operaciones(parametro1, parametro2)
-  File "C:\Users\Tatiana\Documents\GitHub\Tatiana-bot\Tatiana-Bot\Funciones\Operaciones.py", line 184, in operaciones
-    exec(self.__codigo)
-  File "<string>", line 1
-SyntaxError: 'return' outside function
-Exception on /api/conocimiento_menu/resta/5/2 [GET]
+  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot/MainDeConocimiento.py", line 77, in aprender_externo
+    return str(instancia.aprender_externo(nomb, parseo_de_json))
+  File "C:\Users\Tatiana\Documents\GitHub\Tatiana-bot\Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 160, in aprender_externo
+    return self.creacion_de_memoria.aprender(Operaciones.aprender_externo(nombre, codigo))
+AttributeError: module 'Funciones.Operaciones' has no attribute 'aprender_externo'
+Exception on /api/aprender/externo [POST]
 Traceback (most recent call last):
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -77,17 +69,12 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1598, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot/MainDeConocimiento.py", line 60, in conocimieto_menu
-    return str(instancia.ejercer_conocimiento(tipo, numero1_int, numero2_int))
-  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 149, in ejercer_conocimiento
-    return self.creacion_de_memoria.recorre_matriz(nombre, parametro1, parametro2)
-  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 94, in recorre_matriz
-    respuesta = instancia.operaciones(parametro1, parametro2)
-  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot\Funciones\Operaciones.py", line 184, in operaciones
-    exec(self.__codigo)
-  File "<string>", line 1
-SyntaxError: 'return' outside function
-Exception on /api/conocimiento_menu/resta/5/2 [GET]
+  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot/MainDeConocimiento.py", line 77, in aprender_externo
+    return str(instancia.aprender_externo(nomb, parseo_de_json))
+  File "C:\Users\Tatiana\Documents\GitHub\Tatiana-bot\Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 160, in aprender_externo
+    return self.creacion_de_memoria.aprender(Operaciones.aprender_externo(nombre, codigo))
+AttributeError: module 'Funciones.Operaciones' has no attribute 'aprender_externo'
+Exception on /api/aprender/externo [POST]
 Traceback (most recent call last):
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -101,13 +88,27 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1598, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot/MainDeConocimiento.py", line 60, in conocimieto_menu
-    return str(instancia.ejercer_conocimiento(tipo, numero1_int, numero2_int))
-  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 149, in ejercer_conocimiento
-    return self.creacion_de_memoria.recorre_matriz(nombre, parametro1, parametro2)
-  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 94, in recorre_matriz
-    respuesta = instancia.operaciones(parametro1, parametro2)
-  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot\Funciones\Operaciones.py", line 184, in operaciones
-    exec(self.__codigo)
-  File "<string>", line 1
-SyntaxError: 'return' outside function
+  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot/MainDeConocimiento.py", line 77, in aprender_externo
+    return str(instancia.aprender_externo(nomb, parseo_de_json))
+  File "C:\Users\Tatiana\Documents\GitHub\Tatiana-bot\Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 160, in aprender_externo
+    return self.creacion_de_memoria.aprender(Operaciones.aprender_externo(nombre, codigo))
+AttributeError: module 'Funciones.Operaciones' has no attribute 'aprender_externo'
+Exception on /api/aprender/externo [POST]
+Traceback (most recent call last):
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Tatiana\AppData\Local\Programs\Python\Python36-32\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:/Users/Tatiana/Documents/GitHub/Tatiana-bot/Tatiana-Bot/MainDeConocimiento.py", line 77, in aprender_externo
+    return str(instancia.aprender_externo(nomb, parseo_de_json))
+  File "C:\Users\Tatiana\Documents\GitHub\Tatiana-bot\Tatiana-Bot\Funciones\Gestion_de_conocimiento.py", line 160, in aprender_externo
+    return self.creacion_de_memoria.aprender(Operaciones.maria(nombre, codigo))
+AttributeError: module 'Funciones.Operaciones' has no attribute 'maria'

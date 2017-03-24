@@ -12,7 +12,22 @@ class Operacion:
     def get(self):
         return
 #------------------------------------------Fin de la claes operacion---------------------------------------------------#
+class aprender_externo (Operacion):
 
+    __nombre= ''
+    __codigo= None
+
+    def __init__(self, nombre, codigo):
+        Operacion.__init__(self)
+        self.__nombre = nombre
+        self.__codigo = codigo
+
+    def opereciones(self, numero1, numero2):
+        exec (self.__codigo)
+        return 'HOLA'
+
+    def get(self):
+        return self.__nombre
 
 #-------------------------------------------Inicio de clase suma-------------------------------------------------------#
 class Suma(Operacion):
@@ -170,18 +185,4 @@ class piatgoras_cateto(Operacion):
     def get(self):
         return self.__nombre
 #---------------------------------------Fin de la clase pitagoras------------------------------------------------------#
-class aprender_externo (Operacion):
 
-    __nombre= ''
-    __codigo= ''
-
-    def __init__(self, nombre, codigo):
-        Operacion.__init__(self)
-        self.__nombre = nombre
-        self.__codigo = codigo
-
-    def calcular_hipotenusa(self, numero1, numero2):
-        exec (self.__codigo)
-        return 'HOLA'
-    def get(self):
-        return self.__nombre

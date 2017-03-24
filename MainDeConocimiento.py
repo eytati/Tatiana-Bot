@@ -60,6 +60,15 @@ def aprender_desaprender_menu(tipo):
     instancia_de_olvidar = Gestion_de_conocimiento.Fuente_de_conocimiento()
     return str(instancia_de_olvidar.olvidar(tipo))
 
+@app.route('/api/aprender/externo', methods=['POST'])
+def aprender_externo():
+    nomb = request.json.get('nombre')
+    codi = request.json.get('codigo')
+    conversion_json = json.dumps(codi)
+    parseo_de_json = json.loads(conversion_json)
+    instancia =  Gestion_de_conocimiento.Fuente_de_conocimiento()
+    app.logger.info(str(datetime.now()) + 'Aprende externamente ' + nomb)
+    return str(instancia.aprender_externo(nomb, parseo_de_json))
 
 # ----------------------------------------Donde se accede y el inicio---------------------------------------------------#
 if __name__ == '__main__':
