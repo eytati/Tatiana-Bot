@@ -79,6 +79,15 @@ class Memoria:
             cadena_de_sring += '\n'
         return cadena_de_sring
 
+    def nombres(self):
+        cadena_de_sring = ''
+        for linea in range(len(self.matriz)):
+            for columna in range(len(self.matriz[linea])):
+                if not self.matriz[linea][columna] is None:
+                    nombre = self.matriz[linea][columna].get()
+                    cadena_de_sring += str(nombre) + ' '
+            cadena_de_sring += '\n'
+        return cadena_de_sring
 #--------------------------------------Recorre la memoria--------------------------------------------------------------#
 
     def recorre_matriz(self, nombre, parametro1, parametro2):
@@ -92,7 +101,7 @@ class Memoria:
                     instancia = self.matriz[linea][columna]
                     if nombre == instancia.get():
                         respuesta = instancia.opereciones(parametro1, parametro2)
-                        print(respuesta)
+                        #print(respuesta)
                         existe = True
                         break
         return respuesta
@@ -158,6 +167,9 @@ class Fuente_de_conocimiento:
 
     def aprender_externo(self, nomb, codi):
         return  self.creacion_de_memoria.aprender(Operaciones.aprender_externo(nomb, codi))
+
+    def memoria(self):
+        return  self.creacion_de_memoria.nombres()
 
 
 

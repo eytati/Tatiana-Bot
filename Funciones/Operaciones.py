@@ -1,5 +1,7 @@
 from abc import ABCMeta, abstractmethod
 import math
+from io import StringIO
+
 #------------------------------------------Clase base es Operacion-----------------------------------------------------#
 class Operacion:
     __metaclass__ = ABCMeta
@@ -23,7 +25,10 @@ class aprender_externo(Operacion):
         self.__codigo = codigo
 
     def opereciones(self, numero1, numero2):
-        return exec (self.__codigo)
+        resultado = StringIO
+        resultado  = eval(self.__codigo)
+        resultado_str = str(resultado)
+        return resultado_str
 
     def get(self):
         return self.__nombre
