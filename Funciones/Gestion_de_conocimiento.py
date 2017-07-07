@@ -170,16 +170,3 @@ class Fuente_de_conocimiento:
 
     def memoria(self):
         return  self.creacion_de_memoria.nombres()
-
-
-
-
-'''
-conocimiento = Fuente_de_conocimiento()
-conocimiento.Aprender('Suma')
-
-conocimiento.ejercer_conocimiento('Suma', 6, 2)
-print(conocimiento.olvidar('Suma'))
-conocimiento.ejercer_conocimiento('Suma', 6, 2)
-'''
-
